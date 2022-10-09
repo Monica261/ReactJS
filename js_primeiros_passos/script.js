@@ -48,3 +48,23 @@ lista.indexOf('manga'); //encontrar a posição do item no array
 console.log(lista.join('/')); //juntar a lista com algo
 lista.pop; //remove o ultimo item
 lista.shift; //remove o primeiro
+
+if(lista.indexOf('maça') > 1){
+    alert('este item está na lista');
+}else{
+    alert('este item não está na lista');
+}
+
+function concatenarLista(){
+    const juncao = prompt('digite um item para incrementar a lista');
+
+    if(juncao == '' || juncao == null){ 
+        alert(lista.concat(juncao).innerHTML);
+    }else if(juncao != null){  
+        alert(lista + ',' + juncao);
+    }
+    else{
+        alert(lista).innerHTML;
+    }
+}
+concatenarLista();
