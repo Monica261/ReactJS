@@ -1,70 +1,94 @@
-//condicional idade
-var idade = prompt('Sua idade?');
-if(idade >= 18){
-    alert(`${idade} - maior de idade`);
-}else{
-    alert(`${idade} - menor de idade`);
+//trabalhando com loops
+x = 0;
+while(x < 10){
+    document.write(`o valor do x é: ${x} <br />`);
+
+    x++;
+}
+
+document.write('<br />');
+
+//for
+for(a = 0; a < 10; a++){
+    document.write(`utilizando o for em loop: ${a} <br />`);
+}
+
+document.write('<br />');
+
+//forEach
+const frutas = ['melao', 'manga', 'maca', 'banana'];
+
+frutas.forEach((index, item)=>{
+    document.write('percorrendo todas as frutas do array com forEach ' + index + ' - ' + item +'<br />');
+})
+
+const ganhadores = ['João', 'Pedro', 'Felipe', 'Bianca', 'Gabriel', 'Natalia']
+
+ganhadores.forEach((item)=>{
+    console.log(`O e-mail será enviado para: ${item}`)
+})
+
+
+//switch
+function pedir(){
+    document.write('1 - azul | 2 - rosa <br/> 3- preto | 4 - roxo')
+
+    x = prompt('oq deseja saber?');
+
+    switch(x){
+        case '1':
+            alert('O escolhido foi azul');
+        break;
+        case '2':
+            alert('O escolhido foi rosa');
+        break;
+        case '3':
+            alert('O escolhido foi preto');
+        break;
+        case '4':
+            alert('O escolhido foi roxo');
+        break;
+        default:
+            alert('nenhuma das opções');
+        break;
+    }
+}
+
+//temporizacao
+function acao(){
+   console.log('Executando...');
+}
+
+var timer = setInterval(acao, 3000);
+
+function stop(){
+    console.log(clearInterval(timer) + ' parou');
+}
+
+//webStorage
+/*localStorage.nome = 'Mônica';
+
+console.log(nome)*/
+
+//uso de variavel em string
+let nome = prompt('Qual o seu nome?');
+alert(`Seja bem vinda ${nome}`)
+
+//desconstrucao de objts e arrays
+const pessoa = {
+    nome2: 'Mônica',
+    sobrenome: 'Torres',
+    idade: 22,
+    profissao: 'desenvolvedora'
 };
 
-document.write(`${idade} - Idade do candidato`);
+console.log(pessoa.nome2)
 
-//funcoes
-function entrar(){
-    var area = document.getElementById('area');
-    var texto = prompt('digite seu nome');
+let {sobrenome} = pessoa;
+console.log(sobrenome)
 
-    if(texto == '' || texto == null){
-    alert('Digite seu nome novamente');
-    area.innerHTML = 'Bem vindo...';
-    }else{
-    area.innerHTML =(`${texto} seja bem vindo`);
-    }
-}
+let nomes = ['Mônica', 'Pedro', 'Andre'];
 
-function entrada(idade, nome){
-    var call = document.getElementById('retorno');
-    var idade = prompt('digite sua idade');
+let {1:primeironome} = nomes; //posso definir a posição que eu desejo pegar
 
-    call.innerHTML = idade + ' ' + nome;
-}
-
-function cor(parametroCor){
-    window.document.body.style.backgroundColor = parametroCor;
-}
-cor('teal');
-
-//cor de fundo escolha do usuario
-function cor(){
-    const parametroCor = prompt('cor do background em ingles?');
-    window.document.body.style.backgroundColor = parametroCor;
-}
-
-//array
-var lista = ['melão', 'maça', 'manga', 'banana', 'uva'];
-console.log(lista.length); //quantidade de itens na lista
-console.log(lista[1]); //retorno somente o item que desejo
-lista.concat('pera'); //incrementar a lista
-lista.indexOf('manga'); //encontrar a posição do item no array
-console.log(lista.join('/')); //juntar a lista com algo
-lista.pop; //remove o ultimo item
-lista.shift; //remove o primeiro
-
-if(lista.indexOf('maça') > 1){
-    alert('este item está na lista');
-}else{
-    alert('este item não está na lista');
-}
-
-function concatenarLista(){
-    const juncao = prompt('digite um item para incrementar a lista');
-
-    if(juncao == '' || juncao == null){ 
-        alert(lista.concat(juncao).innerHTML);
-    }else if(juncao != null){  
-        alert(lista + ',' + juncao);
-    }
-    else{
-        alert(lista).innerHTML;
-    }
-}
-concatenarLista();
+console.log(primeironome)
