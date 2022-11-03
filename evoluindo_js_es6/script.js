@@ -92,3 +92,79 @@ let nomes = ['Mônica', 'Pedro', 'Andre'];
 let {1:primeironome} = nomes; //posso definir a posição que eu desejo pegar
 
 console.log(primeironome)
+
+//spread operator realiza a junção
+
+let primeiros = [1,2,3];
+
+let numeros = [...primeiros, 4,5,6];
+console.log(numeros);
+
+//caso real reutilizando dados com spread
+let humano = {
+    nome3: 'Ester',
+    idade: 23,
+    cargo: 'Engenheira'
+};
+
+let novaPessoa = {
+    ...humano,
+    anoAtual: 2030,
+    cidade: 'São José dos Campos'
+};
+
+console.log(novaPessoa);
+
+/*-----------------------------*/
+
+function cadastroPessoa(info){
+    let novosDados = {
+    ...info,
+    codigo: 1,
+    status: 'ativo'
+    };
+
+    return novosDados;
+}
+
+console.log(cadastroPessoa({
+    nome: 'Mônica Torres',
+    idade: 22,
+    cargo: 'Desenvolvedora'
+}));
+
+/*-----------------------------*/
+
+function pedidoComida(alimentos){
+    let itensPedido = {
+        ...alimentos,
+        codigoPedido: 3056,
+        statusPedido: 'Preparando',
+        qntd: '4 itens'
+    }
+
+    return itensPedido;
+};
+
+console.log(pedidoComida({
+    hamburguer: '1 xburguer',
+    batataFrita: '1 batata grande com sal',
+    coca: '1 copo sem gelo',
+    sobremesa: '1 casquinha de chocolate'
+}))
+
+//rest operator
+
+function cadastrar(usuarios, ...novosUsuarios){
+    let totalUsuarios = [
+        ...usuarios,
+        ...novosUsuarios
+    ]
+
+    return console.log(totalUsuarios);
+}
+
+
+let usuarios = ['Matheus', 'João'];
+
+let novosUsuarios = cadastrar(usuarios, 'Pablo', 'Maria', 'Agatha');
