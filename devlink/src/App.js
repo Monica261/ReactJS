@@ -1,27 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
-import { useState, useEffect } from 'react';
+import { createBrowserRouter } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-     <h2>devlink</h2>
-     <Bemvindo />
-    </div>
-  );
-}
+import Home from './pages/home'
+import Login from './pages/login'
+import Admin from './pages/admin'
 
-function Bemvindo(){
-  //const nome = prompt('qual o seu nome?');
-  const [nome, setNome] = useState(prompt('seu nome'));
-  if(nome != ''){
-    setNome('');
+import Error from './pages/error' //pg que vai tratar not found
+
+const router = createBrowserRouter([
+  {
+  path: '/',
+  element: <Home/>
+  },
+  {
+    path: '/login',
+    element: <Login/>
+  },
+  {
+    path: '/admin',
+    element: <Admin/>
+  },
+  {
+    path: '*',
+    element: <Error/>
   }
-  
+])
 
-  return (
-    document.write(`Bem-vinda ${nome}`)
-  )
-}
-
-export default App;
+export {router};

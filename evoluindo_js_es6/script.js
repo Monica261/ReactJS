@@ -239,7 +239,7 @@ let funcionario = ['pedro', 'carlos', 'antonio'];
 
 console.log(funcionario.some(nome => nome === 'pietro'));
 
-//every - todos precisam passar na condição
+//every - todos precisam passar na condiçãos
 let estudantes = [
     {nome: 'Caio', idade: 20},
     {nome: 'Antonio', idade: 15},
